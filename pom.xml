@@ -37,4 +37,24 @@
   <version>8.0.33</version>
 </dependency>
 </dependencies>
-  </project>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.3.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>com.apiBusses.App</mainClass> <!-- reemplaza con tu clase -->
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+
+</project>
