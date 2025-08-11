@@ -1,45 +1,64 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0">
-<modelVersion>4.0.0</modelVersion>
-<groupId>com.apiBusses</groupId>
-<artifactId>apiBusses</artifactId>
-<version>1.0-SNAPSHOT</version>
-<properties>
-<maven.compiler.source>21</maven.compiler.source>
-<maven.compiler.target>21</maven.compiler.target>
-</properties>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.apiBusses</groupId>
+  <artifactId>apiBusses</artifactId>
+  <version>1.0-SNAPSHOT</version>
 
-<dependencies>
-<!-- Javalin -->
-<dependency>
-  <groupId>io.javalin</groupId>
-  <artifactId>javalin</artifactId>
-  <version>6.1.3</version>
-</dependency>
+  <properties>
+    <maven.compiler.release>21</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
 
-<!-- Jackson JSON -->
-<dependency>
-  <groupId>com.fasterxml.jackson.core</groupId>
-  <artifactId>jackson-databind</artifactId>
-  <version>2.15.2</version>
-</dependency>
+  <dependencies>
+    <!-- Javalin -->
+    <dependency>
+      <groupId>io.javalin</groupId>
+      <artifactId>javalin</artifactId>
+      <version>6.1.3</version>
+    </dependency>
 
-<!-- SLF4J logging -->
-<dependency>
-  <groupId>org.slf4j</groupId>
-  <artifactId>slf4j-simple</artifactId>
-  <version>2.0.9</version>
-</dependency>
+    <!-- Jackson JSON -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.15.2</version>
+    </dependency>
 
-<!-- JDBC MySQL -->
-<dependency>
-  <groupId>mysql</groupId>
-  <artifactId>mysql-connector-java</artifactId>
-  <version>8.0.33</version>
-</dependency>
-</dependencies>
+    <!-- SLF4J logging (simple backend) -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>2.0.9</version>
+    </dependency>
+
+    <!-- JDBC MySQL (coordenada nueva / relocated) -->
+    <dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <version>8.0.33</version>
+    </dependency>
+  </dependencies>
 
   <build>
     <plugins>
+      <!-- Compilación Java 21 explícita -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <release>21</release>
+        </configuration>
+      </plugin>
+
+      <!-- Clean moderno para evitar "Failed to delete ...pom.properties" -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.3.2</version>
+      </plugin>
+
+      <!-- Empaquetado "fat jar" -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
@@ -53,7 +72,7 @@
             <configuration>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>com.apiBusses.App</mainClass> <!-- Asegúrate que esta clase exista -->
+                  <mainClass>com.apiBusses.App</mainClass>
                 </transformer>
               </transformers>
             </configuration>
@@ -62,8 +81,4 @@
       </plugin>
     </plugins>
   </build>
-
-
-
-
 </project>
