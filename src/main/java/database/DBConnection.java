@@ -13,7 +13,7 @@ public class DBConnection {
   private static final String LOCAL_PASS = "";
 
   // Remoto (NLB MySQL en AWS)
-  private static final String REMOTE_URL  = "jdbc:mysql://mysql-mm-nlb-c5d809abffe036b8.elb.us-east-1.amazonaws.com:3306/busses_db_test"
+  private static final String REMOTE_URL  = "jdbc:mysql://mysql-mm-nlb-d23f30db628df96f.elb.us-east-2.amazonaws.com:3306/busses_db_test"
       + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&connectTimeout=2000&socketTimeout=5000";
   private static final String REMOTE_USER = "app";
   private static final String REMOTE_PASS = "AppP@ss_2025";
