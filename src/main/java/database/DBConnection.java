@@ -8,6 +8,7 @@ import java.net.Socket;
 
 public class DBConnection {
   // Local (tu máquina)
+
   private static final String LOCAL_URL  =  "jdbc:mysql://mysql-mm-nlb-3334d9e3ecaf69b9.elb.us-east-2.amazonaws.com:3306/busses_db_test"
           + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&connectTimeout=2000&socketTimeout=5000"; //"jdbc:mysql://localhost:3306/busses_db_test?useSSL=false&serverTimezone=UTC";
   private static final String LOCAL_USER = "app"; //"root";
