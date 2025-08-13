@@ -8,15 +8,16 @@ import java.net.Socket;
 
 public class DBConnection {
   // Local (tu máquina)
-  private static final String LOCAL_URL  = "jdbc:mysql://localhost:3306/busses_db_test?useSSL=false&serverTimezone=UTC";
-  private static final String LOCAL_USER = "root";
-  private static final String LOCAL_PASS = "";
+  private static final String LOCAL_URL  =  "jdbc:mysql://mysql-mm-nlb-3334d9e3ecaf69b9.elb.us-east-2.amazonaws.com:3306/busses_db_test"
+          + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&connectTimeout=2000&socketTimeout=5000"; //"jdbc:mysql://localhost:3306/busses_db_test?useSSL=false&serverTimezone=UTC";
+  private static final String LOCAL_USER = "app"; //"root";
+  private static final String LOCAL_PASS = "AppP@ss_2025!"; //"";
 
   // Remoto (NLB MySQL en AWS)
-  private static final String REMOTE_URL  = "jdbc:mysql://mysql-mm-nlb-d23f30db628df96f.elb.us-east-2.amazonaws.com:3306/busses_db_test"
+  private static final String REMOTE_URL  = "jdbc:mysql://mysql-mm-nlb-3334d9e3ecaf69b9.elb.us-east-2.amazonaws.com:3306/busses_db_test"
       + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&connectTimeout=2000&socketTimeout=5000";
   private static final String REMOTE_USER = "app";
-  private static final String REMOTE_PASS = "AppP@ss_2025";
+  private static final String REMOTE_PASS = "AppP@ss_2025!";
 
   // Timeout de sonda rápida al puerto local 3306
   private static final int PROBE_TIMEOUT_MS = 700;
